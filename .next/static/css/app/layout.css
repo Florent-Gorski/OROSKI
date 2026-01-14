@@ -505,17 +505,23 @@ video {
 .invisible {
   visibility: hidden;
 }
+.fixed {
+  position: fixed;
+}
 .absolute {
   position: absolute;
 }
 .relative {
   position: relative;
 }
-.sticky {
-  position: sticky;
-}
 .inset-0 {
   inset: 0px;
+}
+.left-0 {
+  left: 0px;
+}
+.right-0 {
+  right: 0px;
 }
 .top-0 {
   top: 0px;
@@ -661,9 +667,11 @@ video {
 .border-black\/15 {
   border-color: rgb(0 0 0 / 0.15);
 }
-.bg-black {
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
+.border-transparent {
+  border-color: transparent;
+}
+.border-white\/35 {
+  border-color: rgb(255 255 255 / 0.35);
 }
 .bg-ink {
   --tw-bg-opacity: 1;
@@ -673,17 +681,21 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(246 241 232 / var(--tw-bg-opacity, 1));
 }
-.bg-ivory\/75 {
-  background-color: rgb(246 241 232 / 0.75);
-}
 .bg-sand\/35 {
   background-color: rgb(231 222 210 / 0.35);
 }
 .bg-transparent {
   background-color: transparent;
 }
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+}
+.bg-gradient-to-r {
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
 .bg-gradient-to-t {
   background-image: linear-gradient(to top, var(--tw-gradient-stops));
@@ -698,21 +710,30 @@ video {
   --tw-gradient-to: rgb(0 0 0 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
-.from-black\/35 {
-  --tw-gradient-from: rgb(0 0 0 / 0.35) var(--tw-gradient-from-position);
+.from-black\/40 {
+  --tw-gradient-from: rgb(0 0 0 / 0.4) var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(0 0 0 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
-.via-black\/15 {
+.from-black\/55 {
+  --tw-gradient-from: rgb(0 0 0 / 0.55) var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(0 0 0 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.via-black\/10 {
   --tw-gradient-to: rgb(0 0 0 / 0)  var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), rgb(0 0 0 / 0.15) var(--tw-gradient-via-position), var(--tw-gradient-to);
+  --tw-gradient-stops: var(--tw-gradient-from), rgb(0 0 0 / 0.1) var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+.via-black\/25 {
+  --tw-gradient-to: rgb(0 0 0 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), rgb(0 0 0 / 0.25) var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 .via-transparent {
   --tw-gradient-to: rgb(0 0 0 / 0)  var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), transparent var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
-.to-ivory\/90 {
-  --tw-gradient-to: rgb(246 241 232 / 0.9) var(--tw-gradient-to-position);
+.to-ivory\/85 {
+  --tw-gradient-to: rgb(246 241 232 / 0.85) var(--tw-gradient-to-position);
 }
 .to-transparent {
   --tw-gradient-to: transparent var(--tw-gradient-to-position);
@@ -761,8 +782,8 @@ video {
 .pt-10 {
   padding-top: 2.5rem;
 }
-.pt-20 {
-  padding-top: 5rem;
+.pt-28 {
+  padding-top: 7rem;
 }
 .pt-3 {
   padding-top: 0.75rem;
@@ -815,8 +836,15 @@ video {
 .text-\[\#1C1C1C\]\/90 {
   color: rgb(28 28 28 / 0.9);
 }
+.text-ink {
+  --tw-text-opacity: 1;
+  color: rgb(20 20 20 / var(--tw-text-opacity, 1));
+}
 .text-ink\/80 {
   color: rgb(20 20 20 / 0.8);
+}
+.text-ink\/85 {
+  color: rgb(20 20 20 / 0.85);
 }
 .text-ivory {
   --tw-text-opacity: 1;
@@ -830,8 +858,16 @@ video {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
-.text-white\/85 {
-  color: rgb(255 255 255 / 0.85);
+.text-white\/70 {
+  color: rgb(255 255 255 / 0.7);
+}
+.text-white\/90 {
+  color: rgb(255 255 255 / 0.9);
+}
+.shadow-\[0_10px_40px_rgba\(0\2c 0\2c 0\2c 0\.08\)\] {
+  --tw-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  --tw-shadow-colored: 0 10px 40px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 .shadow-soft {
   --tw-shadow: 0 20px 60px rgba(0,0,0,0.12);
@@ -841,6 +877,14 @@ video {
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+.drop-shadow-\[0_10px_30px_rgba\(0\2c 0\2c 0\2c 0\.35\)\] {
+  --tw-drop-shadow: drop-shadow(0 10px 30px rgba(0,0,0,0.35));
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+.drop-shadow-\[0_6px_18px_rgba\(0\2c 0\2c 0\2c 0\.35\)\] {
+  --tw-drop-shadow: drop-shadow(0 6px 18px rgba(0,0,0,0.35));
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
@@ -853,6 +897,14 @@ video {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.duration-300 {
+  transition-duration: 300ms;
 }
 
 :root { color-scheme: light; }
@@ -946,6 +998,9 @@ body {
 .hover\:border-black\/30:hover {
   border-color: rgb(0 0 0 / 0.3);
 }
+.hover\:border-white\/55:hover {
+  border-color: rgb(255 255 255 / 0.55);
+}
 .hover\:text-ink:hover {
   --tw-text-opacity: 1;
   color: rgb(20 20 20 / var(--tw-text-opacity, 1));
@@ -1021,8 +1076,8 @@ body {
     padding-top: 3rem;
   }
 
-  .md\:pt-28 {
-    padding-top: 7rem;
+  .md\:pt-32 {
+    padding-top: 8rem;
   }
 
   .md\:\[\&\>\*\:first-child\]\:order-2>*:first-child {

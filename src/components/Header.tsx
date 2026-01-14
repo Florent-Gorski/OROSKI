@@ -1,10 +1,14 @@
-"use client";
-
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import type { Lang, Dictionary } from "@/content/dictionaries";
 
+/**
+ * Header luxe constant :
+ * - Background navy (stable sur toutes les pages)
+ * - Logo centré
+ * - Nav gauche + Nav droite
+ * - Switch FR/EN à droite
+ */
 export default function Header({
   lang,
   dict
@@ -13,70 +17,44 @@ export default function Header({
   dict: Dictionary;
 })
 {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() =>
-  {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const headerClass = useMemo(() =>
-  {
-    // Avant scroll: overlay luxe
-    // Après scroll: glass + bordure, très premium
-    return [
-      "fixed top-0 left-0 right-0 z-50",
-      "transition-all duration-300",
-      scrolled
-        ? "backdrop-blur bg-ivory/82 border-b border-black/10 shadow-[0_10px_40px_rgba(0,0,0,0.08)]"
-        : "bg-transparent border-b border-transparent"
-    ].join(" ");
-  }, [scrolled]);
-
-  const textClass = scrolled
-    ? "text-[#1C1C1C]/90"
-    : "text-white/90";
-
-  const mutedClass = scrolled
-    ? "text-stone"
-    : "text-white/70";
-
   return (
-    <header className={headerClass}>
-      <div className="luxe-container h-16 flex items-center justify-between">
-        <Link href={`/${lang}`} className="flex items-baseline gap-2">
-          <span className={`font-serif tracking-[0.18em] text-[13px] ${textClass}`}>
-            OROSKI
-          </span>
-          <span className={`text-[11px] hidden sm:inline ${mutedClass}`}>
-            {dict.brand.tagline}
-          </span>
-        </Link>
-
-        <nav
-          className={`hidden md:flex items-center gap-7 text-[12px] tracking-[0.18em] uppercase ${textClass}`}
-        >
-          <Link href={`/${lang}`} className="hover:opacity-70 transition">
+    <header className="oroski-header">
+      <div className="luxe-container oroski-header__inner">
+        {/* Nav gauche */}
+        <nav className="oroski-header__nav oroski-header__nav--left" aria-label="Primary">
+          <Link className="oroski-header__link" href={`/${lang}`}>
             {dict.nav.home}
           </Link>
-          <Link href={`/${lang}/collection`} className="hover:opacity-70 transition">
+          <Link className="oroski-header__link" href={`/${lang}/collection`}>
             {dict.nav.collection}
           </Link>
-          <Link href={`/${lang}/livraison`} className="hover:opacity-70 transition">
+          <Link className="oroski-header__link" href={`/${lang}/livraison`}>
             {dict.nav.delivery}
-          </Link>
-          <Link href={`/${lang}/a-propos`} className="hover:opacity-70 transition">
-            {dict.nav.about}
-          </Link>
-          <Link href={`/${lang}/contact`} className="hover:opacity-70 transition">
-            {dict.nav.contact}
           </Link>
         </nav>
 
-        <LanguageSwitcher currentLang={lang} variant={scrolled ? "light" : "dark"} />
+        {/* Logo centré */}
+        <Link href={`/${lang}`} className="oroski-header__brand" aria-label="OROSKI Home">
+          <span className="oroski-header__mark" aria-hidden="true" />
+          <span className="oroski-header__wordmark">OROSKI</span>
+          <span className="oroski-header__tagline">{dict.brand.tagline}</span>
+        </Link>
+
+        {/* Nav droite + switch */}
+        <div className="oroski-header__right">
+          <nav className="oroski-header__nav oroski-header__nav--right" aria-label="Secondary">
+            <Link className="oroski-header__link" href={`/${lang}/a-propos`}>
+              {dict.nav.about}
+            </Link>
+            <Link className="oroski-header__link" href={`/${lang}/contact`}>
+              {dict.nav.contact}
+            </Link>
+          </nav>
+
+          <div className="oroski-header__lang">
+            <LanguageSwitcher currentLang={lang} variant="navy" />
+          </div>
+        </div>
       </div>
     </header>
   );

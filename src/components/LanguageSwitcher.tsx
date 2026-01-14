@@ -18,7 +18,7 @@ export default function LanguageSwitcher({
   variant = "light"
 }: {
   currentLang: Lang;
-  variant?: "light" | "dark";
+  variant?: "light" | "dark" | "navy";
 })
 {
   const pathname = usePathname() || "/";
@@ -29,17 +29,23 @@ export default function LanguageSwitcher({
     "px-2 py-1 text-[12px] tracking-[0.18em] uppercase border transition";
 
   const styles =
-    variant === "dark"
+    variant === "navy"
       ? {
-        box: "border-white/35 hover:border-white/55",
-        active: "bg-white text-ink",
-        idle: "bg-transparent text-white/90"
+        box: "border-white/35 hover:border-white/60",
+        active: "bg-white text-[#122744]",
+        idle: "bg-transparent text-white/85"
       }
-      : {
-        box: "border-black/15 hover:border-black/30",
-        active: "bg-ink text-ivory",
-        idle: "bg-transparent text-ink/85"
-      };
+      : variant === "dark"
+        ? {
+          box: "border-white/35 hover:border-white/55",
+          active: "bg-white text-ink",
+          idle: "bg-transparent text-white/90"
+        }
+        : {
+          box: "border-black/15 hover:border-black/30",
+          active: "bg-ink text-ivory",
+          idle: "bg-transparent text-ink/85"
+        };
 
   return (
     <div className="flex items-center gap-2">
